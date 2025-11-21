@@ -1,0 +1,29 @@
+
+services:
+  # backend: 
+  #   container_name: backend
+  #   build: 
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   restart: always
+  #   ports:
+  #     - 3001:3000
+  #   volumes: 
+  #     - .:/backend
+  #     - /backend/node_modules
+  #     - /backend/dist
+  #   networks: 
+  #     - backend  
+
+  db:
+    container_name: mongo
+    image: mongo:latest
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data:/data/db
+volumes:
+  data:
+networks:
+  backend:
